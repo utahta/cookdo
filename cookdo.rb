@@ -57,7 +57,7 @@ end
 # main
 opts = {}
 op = OptionParser.new do |opt|
-  opt.on('-c ID', '--category=ID', 'カテゴリーを指定(177, 19)') {|v| opts[:category] = v}
+  opt.on('-c ID', '--category=ID', 'カテゴリーを指定(177, 19とか)') {|v| opts[:category] = v}
 
   opt.parse!
 end
