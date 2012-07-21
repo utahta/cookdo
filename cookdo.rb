@@ -155,6 +155,12 @@ class Cook
       num += 1
     end
     puts "はてブ取得完了"
+    
+    puts "ソート開始"
+    recipes.sort!{|a, b|
+      a.count <=> b.count
+    }.reverse!
+    puts "ソート完了"
     recipes
   end
   
@@ -166,6 +172,7 @@ class Cook
     else
       # Cookpad
       max_num = get_recipe_maxnum()
+      max_num = 5
       recipes = get_recipes(max_num)
       save_recipes(recipes, "cookdo_#{now}.csv")
     end
