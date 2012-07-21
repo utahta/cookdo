@@ -172,7 +172,6 @@ class Cook
     else
       # Cookpad
       max_num = get_recipe_maxnum()
-      max_num = 5
       recipes = get_recipes(max_num)
       save_recipes(recipes, "cookdo_#{now}.csv")
     end
