@@ -2,3 +2,4 @@ config.rb
 .project
 .bundle
 *.csv
+.buildpath

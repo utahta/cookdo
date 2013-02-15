@@ -65,7 +65,7 @@ class Cook
     if @opts[:category]
       "http://cookpad.com/category/#{@opts[:category]}?page=#{page}"
     elsif @opts[:recipe]
-      URI.escape("http://cookpad.com/レシピ/#{@opts[:recipe]}?order=date&page=#{page}")
+      URI.escape("http://cookpad.com/search/#{@opts[:recipe]}?order=date&page=#{page}")
     end
   end
   
@@ -77,8 +77,8 @@ class Cook
       page = doc.xpath('//span[@class="page_num"]')[0].text.strip
       page[/ ([0-9,]+)/].strip.gsub(",", "").to_i
     elsif @opts[:recipe]
-      page = doc.xpath('//span[@class="page_top"]')[0].text.strip
-      page = page[/\/([0-9,]+)/].strip
+      page = doc.xpath('//div[@class="paginator"]/span')[0].text.strip
+      page = page[/\/ ([0-9,]+)/].strip
       page[1..page.length].gsub(",", "").to_i
     end
   end
